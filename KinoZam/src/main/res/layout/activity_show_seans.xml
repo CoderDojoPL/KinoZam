@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:id="@+id/imageView"
+            android:padding="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/titleTextView"
+                android:layout_gravity="center|left"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/dateTextView"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/timeTextView"
+                android:paddingBottom="10dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <WebView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/descriptionTextView"
+                android:layout_gravity="center"
+                android:text="Seans Description"
+                android:clickable="false"
+                android:background="@android:color/background_dark"
+                style="color:white;"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="fill_parent"
+                    android:text="Szukaj trailera"
+                    android:id="@+id/textView"
+                    android:gravity="center_vertical"
+                    android:paddingRight="10dp"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/trailerButton"
+                    android:src="@android:drawable/ic_menu_search"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:padding="20dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="fill_parent"
+                    android:text="Otwórz stronę kina"
+                    android:id="@+id/textView2"
+                    android:gravity="center_vertical"
+                    android:paddingRight="10dp"
+                    />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/linkButton"
+                    android:src="@android:drawable/ic_menu_info_details"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:padding="20dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

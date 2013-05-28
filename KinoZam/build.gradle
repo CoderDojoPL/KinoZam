@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        maven { url 'http://repo1.maven.org/maven2' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4'
+    }
+}
+apply plugin: 'android'
+
+dependencies {
+    compile files('libs/android-support-v4.jar')
+    compile 'org.jsoup:jsoup:1.6.3','org.mnode.ical4j:ical4j:1.0.4'
+
+}
+
+android {
+    compileSdkVersion 10
+    buildToolsVersion "17.0.0"
+
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 10
+    }
+}

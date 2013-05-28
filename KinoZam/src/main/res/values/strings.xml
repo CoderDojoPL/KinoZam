@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Kino Zambrów
+    </string>
+    <string name="action_refresh">Odśwież
+    </string>
+    <string name="hello_world">Witaj świecie!
+    </string>
+    <string name="open_url">Zobacz na stronie</string>
+
+</resources>
