@@ -1,3 +1,6 @@
+//Głowny plik konfiguracji Gradle.
+
+//Poniższa konfiguracja włącza pobieranie biblioek potrzebnych do działania programu z repozytorium Mavena
 allprojects {
     repositories {
         mavenCentral()

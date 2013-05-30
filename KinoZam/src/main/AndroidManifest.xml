@@ -7,9 +7,14 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="10" />
+    <!--Uprawnienia jakich potrzebuje aplikacja do działania -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-
+    <!-- Podstawowe ustawienia aplikacji:
+     - android:icon - Ikonka programu
+     - android:label - Nazwa aplikacji
+     Activity to w uproszczenie pojedynczy ekran, na którym użytkownik może wykonać pojedynczą operację
+     -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
