@@ -17,6 +17,7 @@ import pl.coderdojo.kinozam.model.Seans;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 
 /**
  * Created by luk on 22.05.13.
@@ -55,8 +56,22 @@ public class ShowSeansActivity extends Activity {
 
         TextView timeTextView = (TextView) findViewById(R.id.timeTextView);
         timeTextView.setText(dt.format(seans.getDate()));
+        java.util.Calendar cal = GregorianCalendar.getInstance();
+        int biezMies = cal.get(java.util.Calendar.MONTH);
+        int biezDzien = cal.get(java.util.Calendar.DAY_OF_MONTH);
+        cal.setTime(seans.getDate());
+        int seansMies = cal.get(java.util.Calendar.MONTH);
+        int seansDzien = cal.get(java.util.Calendar.DAY_OF_MONTH);
         TextView dateTextView = (TextView) findViewById(R.id.dateTextView);
+
+        if (biezMies == seansMies && biezDzien == seansDzien) {
+            dateTextView.setText("Dzisiaj");
+        }
+        else
+        {
         dateTextView.setText(dd.format(seans.getDate()));
+        }
+
 
 
 //        TextView linkTextView = (TextView) findViewById(R.id.linkTextView);
