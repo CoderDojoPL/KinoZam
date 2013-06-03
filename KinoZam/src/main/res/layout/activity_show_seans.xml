@@ -76,6 +76,33 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="fill_parent"
+                    android:text="Naciśnij, aby wykonać rezerwację! "
+                    android:id="@+id/textView4"
+                    android:paddingRight="10dp"
+                    android:gravity="center_vertical"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="864754488"
+                    android:id="@+id/textView3"
+                    android:autoLink="phone"
+                    android:phoneNumber="true"
+                    android:padding="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:paddingBottom="20dp">
 
@@ -89,12 +116,14 @@
 
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/trailerButton"
-                    android:src="@android:drawable/ic_menu_search"
+                    android:src="@drawable/szukaj"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp"
-                    android:padding="20dp"/>
+                    android:padding="20dp"
+                    android:background="#010101"
+                    android:layout_gravity="center"/>
 
             </LinearLayout>
 
@@ -113,13 +142,12 @@
                     />
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
+                    android:layout_width="91dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/linkButton"
-                    android:src="@android:drawable/ic_menu_info_details"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:padding="20dp"/>
+                    android:src="@drawable/logo_stronki"
+                    android:background="#010101"
+                    android:layout_gravity="center_horizontal|top"/>
             </LinearLayout>
 
         </LinearLayout>
