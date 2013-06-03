@@ -18,11 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by luk on 19.05.13.
@@ -106,7 +102,10 @@ public class SeansReader {
             for (Object o : calendar.getComponents()) {
                 VEvent event = (VEvent) o;
                 Seans seans = createSeans(event);
-                seanse.add(seans);
+
+                if (seans.getDate().compareTo(new Date()) > 0)
+                    seanse.add(seans);
+
             }
         } catch (ParserException e) {
             System.out.println("Błąd parsowania kalendarza");
