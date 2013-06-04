@@ -64,6 +64,7 @@ public class SeansReader {
             descriptionCache.put(title, seans.getDescription());
         }
     }
+
     protected Bitmap loadImage(URI uri) {
 
         Bitmap mIcon11 = null;
@@ -103,7 +104,7 @@ public class SeansReader {
                 VEvent event = (VEvent) o;
                 Seans seans = createSeans(event);
 
-                if (seans.getDate().compareTo(new Date()) > 0)
+                if (seans.isInFuture())
                     seanse.add(seans);
 
             }
