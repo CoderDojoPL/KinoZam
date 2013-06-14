@@ -8,5 +8,8 @@
     <string name="hello_world">Witaj świecie!
     </string>
     <string name="open_url">Zobacz na stronie</string>
+    <string name="app_description">Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i
+        polub nas
+    </string>
 
 </resources>

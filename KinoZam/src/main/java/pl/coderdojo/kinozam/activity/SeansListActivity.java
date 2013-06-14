@@ -1,22 +1,27 @@
 package pl.coderdojo.kinozam.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
 import pl.coderdojo.kinozam.R;
 import pl.coderdojo.kinozam.activity.task.ReadExtraDataSeansTask;
 import pl.coderdojo.kinozam.activity.task.ReadSeanseTask;
 import pl.coderdojo.kinozam.model.Seans;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Aktywność wyświetlająca listę seansów, czyli nasz główny ekran
@@ -24,6 +29,8 @@ import java.util.HashMap;
  * Rozszerzając ją dodajemy nowe funkcje do tych które są już zdefinowane a Activity
  */
 public class SeansListActivity extends Activity {
+
+    public List<Seans> seanse;
 
     @Override
     /**
@@ -71,6 +78,59 @@ public class SeansListActivity extends Activity {
 
         inicjujObslugeBanera();
 
+        final EditText searchText = (EditText) findViewById(R.id.searchText);
+
+        searchText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                ListView listView = (ListView) findViewById(R.id.listView);
+
+                DateFormat dt = SimpleDateFormat.getTimeInstance(DateFormat.SHORT);
+                DateFormat dd = SimpleDateFormat.getDateInstance(DateFormat.LONG);
+                List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
+                for (Seans item : seanse) {
+                    if (item.getTitle().toLowerCase().contains(searchText.getText().toString().toLowerCase())) {
+                        Map<String, Object> datum = new HashMap<String, Object>(3);
+                        datum.put("title", item.getTitle());
+                        datum.put("date", dd.format(item.getDate()));
+                        datum.put("time", dt.format(item.getDate()));
+                        datum.put("seans", item);
+
+                        data.add(datum);
+                    }
+                }
+                SimpleAdapter adapter = new SimpleAdapter(SeansListActivity.this, data,
+                        R.layout.seans_item,
+                        new String[]{"title", "date", "time"},
+                        new int[]{R.id.titleTextView,
+                                R.id.dateTextView,
+                                R.id.timeTextView});
+                listView.setAdapter(adapter);
+
+            }
+        });
+
+        ImageButton closeDescriptionButton = (ImageButton) findViewById(R.id.closeDojoDescriptionButton);
+        closeDescriptionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout dojoBanner = (LinearLayout) findViewById(R.id.dojoBanner);
+                dojoBanner.setVisibility(View.GONE);
+            }
+        });
+
+
         initReadList();
 
     }
@@ -116,7 +176,9 @@ public class SeansListActivity extends Activity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        initReadList();
+        if (item.getItemId() == R.id.action_refresh) {
+            initReadList();
+        }
         return true;
     }
 

@@ -2,6 +2,7 @@ package pl.coderdojo.kinozam.activity.task;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -47,18 +48,21 @@ public class ReadSeanseTask extends AsyncTask<SeansListActivity, Void, List<Sean
             return;
         }
         ListView listView = (ListView) activity.findViewById(R.id.listView);
-
+        activity.seanse = seanse;
         DateFormat dt = SimpleDateFormat.getTimeInstance(DateFormat.SHORT);
         DateFormat dd = SimpleDateFormat.getDateInstance(DateFormat.LONG);
         List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
+        EditText searchText = (EditText) activity.findViewById(R.id.searchText);
         for (Seans item : seanse) {
-            Map<String, Object> datum = new HashMap<String, Object>(3);
-            datum.put("title", item.getTitle());
-            datum.put("date", dd.format(item.getDate()));
-            datum.put("time", dt.format(item.getDate()));
-            datum.put("seans", item);
+            if (item.getTitle().toLowerCase().contains(searchText.getText().toString().toLowerCase())) {
+                Map<String, Object> datum = new HashMap<String, Object>(3);
+                datum.put("title", item.getTitle());
+                datum.put("date", dd.format(item.getDate()));
+                datum.put("time", dt.format(item.getDate()));
+                datum.put("seans", item);
 
-            data.add(datum);
+                data.add(datum);
+            }
         }
         SimpleAdapter adapter = new SimpleAdapter(activity, data,
                 R.layout.seans_item,

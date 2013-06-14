@@ -14,7 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="#57e73e">
+        android:background="#57e73e"
+        android:id="@+id/dojoBanner">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/closeDojoDescriptionButton"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="@android:color/transparent"
+            android:adjustViewBounds="false"
+            />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -31,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i polub nas"
+                android:text="@string/app_description"
                 android:id="@+id/dojoTextView"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
@@ -49,6 +59,37 @@
                 android:linksClickable="true"
                 android:autoLink="web"/>
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0px"
+        android:layout_height="0px"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageView"
+            android:src="@android:drawable/ic_menu_search"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"/>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchText"
+            android:editable="true"
+            android:enabled="true"
+            android:focusable="true"
+            android:nextFocusUp="@id/searchText"
+            android:nextFocusLeft="@id/searchText"
+            android:singleLine="true"/>
 
     </LinearLayout>
 
