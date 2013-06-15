@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
-import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.component.VEvent;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -99,7 +98,7 @@ public class SeansReader {
         CalendarBuilder builder = new CalendarBuilder();
 
         try {
-            Calendar calendar = builder.build(in);
+            net.fortuna.ical4j.model.Calendar calendar = builder.build(in);
             for (Object o : calendar.getComponents()) {
                 VEvent event = (VEvent) o;
                 Seans seans = createSeans(event);

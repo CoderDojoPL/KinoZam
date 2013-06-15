@@ -47,6 +47,7 @@
                 android:text="Small Text"
                 android:id="@+id/timeTextView"
                 android:paddingBottom="10dp"/>
+
         </LinearLayout>
 
 
@@ -97,7 +98,9 @@
                     android:padding="20dp"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp"
-                    android:textSize="25dp"/>
+                    android:textSize="25dp"
+                    android:textColor="#ff002f"
+                    />
 
             </LinearLayout>
 
@@ -147,7 +150,36 @@
                     android:id="@+id/linkButton"
                     android:src="@drawable/logo_stronki"
                     android:background="#010101"
-                    android:layout_gravity="center_horizontal|top"/>
+                    android:layout_gravity="center_horizontal|top"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingBottom="20dp"
+                android:id="@+id/linearLayout"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="fill_parent"
+                    android:text="Przeczytaj recenzję"
+                    android:id="@+id/textView5"
+                    android:gravity="center_vertical"
+                    android:paddingRight="10dp"/>
+
+                <ImageButton
+                    android:layout_width="91dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recenzjaButton"
+                    android:src="@drawable/recenzja"
+                    android:background="#010101"
+                    android:layout_gravity="center_horizontal|top"
+                    android:paddingBottom="20dp"
+                    android:paddingTop="20dp"/>
             </LinearLayout>
 
         </LinearLayout>

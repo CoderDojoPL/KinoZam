@@ -17,6 +17,7 @@ import pl.coderdojo.kinozam.model.Seans;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Aktywność wyświetlająca szczegóły wybranego seansu
@@ -71,12 +72,19 @@ public class ShowSeansActivity extends Activity {
         //wyswietlamy sformatowany czas z daty seansu
         timeTextView.setText(dt.format(seans.getDate()));
 
+        Date d1 = seans.getDate();
+        Date d2 = new Date();
+        Long czas = (d1.getTime() - d2.getTime()) / 1000;//8000
+        Long godziny = czas / 3600;// 8000/3600 = 2
+        Long minuty = (czas - godziny * 3600) / 60;//8000-2*3600 = 800/60godziny
+
+
         //pobieramy kontrolke do wyswietlania daty seansu
         TextView dateTextView = (TextView) findViewById(R.id.dateTextView);
 
         //jesli seans jest dzisiaj, to zamiast daty wyświetlamy po prostu "Dzisiaj"
         if (seans.isToday()) {
-            dateTextView.setText("Dzisiaj");
+            dateTextView.setText(seans.zaIleCzasu());
         } else {//w przeciwnym wypadku formatujemy date formaterem dd i wyswietlamy w pobranej kontrolce
             dateTextView.setText(dd.format(seans.getDate()));
         }
@@ -110,6 +118,19 @@ public class ShowSeansActivity extends Activity {
             }
         });
 
+        //pobieramy przycisk do wyszukiwania trailerow
+        ImageButton recenzjaButton = (ImageButton) findViewById(R.id.recenzjaButton);
 
+        //po kliknieciu na niego jest tworzona intencja wyswietlająca stronę youtube z hasłem do wyszukiwania/
+        //bedacym zlaczeniem nazwy seansu oraz słow "trailer zapowiedź zwiastun"
+        recenzjaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), RecenzjaActivity.class);
+                intent.putExtra(Intent.ACTION_VIEW, seans);
+                startActivity(intent);
+
+            }
+        });
     }
 }

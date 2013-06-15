@@ -95,4 +95,13 @@ public class Seans implements Serializable {
     public boolean isInFuture() {
         return getDate().compareTo(new Date()) > 0;
     }
+
+    public String zaIleCzasu() {
+        Date d1 = getDate();
+        Date d2 = new Date();
+        Long czas = (d1.getTime() - d2.getTime()) / 1000;//8000
+        Long godziny = czas / 3600;// 8000/3600 = 2
+        Long minuty = (czas - godziny * 3600) / 60;//8000-2*3600 = 800/60godziny
+        return "Dzisiaj za " + godziny + " h " + minuty + " min";
+    }
 }

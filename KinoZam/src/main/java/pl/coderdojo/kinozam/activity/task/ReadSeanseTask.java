@@ -53,13 +53,17 @@ public class ReadSeanseTask extends AsyncTask<SeansListActivity, Void, List<Sean
         DateFormat dd = SimpleDateFormat.getDateInstance(DateFormat.LONG);
         List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
         EditText searchText = (EditText) activity.findViewById(R.id.searchText);
-        for (Seans item : seanse) {
-            if (item.getTitle().toLowerCase().contains(searchText.getText().toString().toLowerCase())) {
+        for (Seans seans : seanse) {
+            if (seans.getTitle().toLowerCase().contains(searchText.getText().toString().toLowerCase())) {
                 Map<String, Object> datum = new HashMap<String, Object>(3);
-                datum.put("title", item.getTitle());
-                datum.put("date", dd.format(item.getDate()));
-                datum.put("time", dt.format(item.getDate()));
-                datum.put("seans", item);
+                datum.put("title", seans.getTitle());
+                if (seans.isToday()) {
+                    datum.put("date", seans.zaIleCzasu());
+                } else {
+                    datum.put("date", dd.format(seans.getDate()));
+                }
+                datum.put("time", dt.format(seans.getDate()));
+                datum.put("seans", seans);
 
                 data.add(datum);
             }

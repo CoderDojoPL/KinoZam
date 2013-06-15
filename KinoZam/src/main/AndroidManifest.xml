@@ -29,6 +29,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ShowSeansActivity" android:label="Szczegóły seansu"/>
+        <activity
+            android:name=".activity.RecenzjaActivity"
+            android:label="Recenzja filmu"/>
     </application>
 
 </manifest>
