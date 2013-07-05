@@ -3,13 +3,17 @@
 
     <string name="app_name">Kino Zambrów
     </string>
-    <string name="action_refresh">Odśwież
-    </string>
+    <string name="action_refresh">Odśwież</string>
+    <string name="action_about">O programie</string>
     <string name="hello_world">Witaj świecie!
     </string>
     <string name="open_url">Zobacz na stronie</string>
-    <string name="app_description">Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i
-        polub nas
+    <string name="app_description">Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i polub nas
     </string>
+    <string name="app_description_with_url">Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i polub nas http://coder-dojo.pl
+    </string>
+    <string name="authors">Mateusz Dmochowski\nKarol Komorowski\nKamil Orłowski\nMichał Sianko
+    </string>
+    <string name="senseis">Łukasz Dziedziul\nKamil Sijko</string>
 
 </resources>

@@ -59,7 +59,8 @@ public class SeansReader {
         }
         Elements pars = content.getElementsByTag("p");
         if (pars.size() > 2) {
-            seans.setDescription(pars.get(2).text());
+            Element par = pars.get(2);
+            seans.setDescription(par.text());
             descriptionCache.put(title, seans.getDescription());
         }
     }

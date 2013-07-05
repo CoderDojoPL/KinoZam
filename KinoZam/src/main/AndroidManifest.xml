@@ -32,6 +32,9 @@
         <activity
             android:name=".activity.RecenzjaActivity"
             android:label="Recenzja filmu"/>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:label="O programie"/>
     </application>
 
 </manifest>

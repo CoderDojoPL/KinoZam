@@ -42,6 +42,25 @@ public class SeansListActivity extends Activity {
         super.onCreate(savedInstanceState);
         //ustawiamy layout widoku na zdefiniowany w pliku res/layout/activity_seans_list.xml
         setContentView(R.layout.activity_seans_list);
+
+        inicjujObslugeListyFilmow();
+
+        inicjujObslugeBanera();
+
+        inicjujObsługeFiltrowania();
+
+        initReadList();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (seanse == null) {
+            initReadList();
+        }
+    }
+
+    private void inicjujObslugeListyFilmow() {
         //pobieramy kontrolkę o id 'listView' w której będziemy wyświetlać listę seansów
         ListView listView = (ListView) findViewById(R.id.listView);
 
@@ -75,9 +94,9 @@ public class SeansListActivity extends Activity {
                 new ReadExtraDataSeansTask(SeansListActivity.this).execute(seans);
             }
         });
+    }
 
-        inicjujObslugeBanera();
-
+    private void inicjujObsługeFiltrowania() {
         final EditText searchText = (EditText) findViewById(R.id.searchText);
 
         searchText.addTextChangedListener(new TextWatcher() {
@@ -120,19 +139,6 @@ public class SeansListActivity extends Activity {
 
             }
         });
-
-        ImageButton closeDescriptionButton = (ImageButton) findViewById(R.id.closeDojoDescriptionButton);
-        closeDescriptionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LinearLayout dojoBanner = (LinearLayout) findViewById(R.id.dojoBanner);
-                dojoBanner.setVisibility(View.GONE);
-            }
-        });
-
-
-        initReadList();
-
     }
 
     /**
@@ -152,6 +158,17 @@ public class SeansListActivity extends Activity {
         findViewById(R.id.dojoLogoView).setOnClickListener(openDojoListener);
         findViewById(R.id.linkView).setOnClickListener(openDojoListener);
         findViewById(R.id.dojoTextView).setOnClickListener(openDojoListener);
+
+        //przycisk do ukrywania banera
+        ImageButton closeDescriptionButton = (ImageButton) findViewById(R.id.closeDojoDescriptionButton);
+        closeDescriptionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout dojoBanner = (LinearLayout) findViewById(R.id.dojoBanner);
+                dojoBanner.setVisibility(View.GONE);
+            }
+        });
+
     }
 
     /**
@@ -171,6 +188,7 @@ public class SeansListActivity extends Activity {
     /**
      * Metoda wywoływana przez system, jeśli użytkownik kliknie w jakąś pozycję w menu. Ponieważ mamy tylko jedną pozycję,
      * która odświeża listę, to po prostu wywołujemy metodę initReadList
+     *
      * @param item pozycja menu, która została kliknięta
      * @return zawsze true. Zgodnie z opisem bazowej funkcji powinna zwrócić true, jeśli metoda obsłużyła kliknięcie w menu
      */
@@ -179,11 +197,16 @@ public class SeansListActivity extends Activity {
         if (item.getItemId() == R.id.action_refresh) {
             initReadList();
         }
+        if (item.getItemId()==R.id.action_about){
+            Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+            startActivity(intent);
+        }
         return true;
     }
 
     /**
      * Metoda wywoływana przez system, gdy trzeba pokazać menu opcji
+     *
      * @param menu menu które będzie wyświetlone
      * @return true, aby menu została wyświetlona, gdyby było false, menu nie pokazało by się
      */
@@ -193,5 +216,5 @@ public class SeansListActivity extends Activity {
         getMenuInflater().inflate(R.menu.seans_list, menu);
         return true;
     }
-    
+
 }

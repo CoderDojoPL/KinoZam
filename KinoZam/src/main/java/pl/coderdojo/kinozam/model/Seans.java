@@ -14,7 +14,7 @@ public class Seans implements Serializable {
     private String title;
     private Date date;
     private URI uri;
-    private String description;
+    private String description="";
     private URI imageUri;
     private transient Bitmap image;
 
