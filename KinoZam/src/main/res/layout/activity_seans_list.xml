@@ -10,64 +10,86 @@
     tools:context=".SeansListActivity">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="386dp"
+        android:layout_height="83dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="#57e73e"
-        android:id="@+id/dojoBanner">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/closeDojoDescriptionButton"
-            android:src="@android:drawable/ic_menu_close_clear_cancel"
-            android:background="@android:color/transparent"
-            android:adjustViewBounds="false"
-            />
+        android:background="#000000"
+        android:id="@+id/dojoBanner"
+        android:layout_gravity="center"
+        android:layout_marginTop="-16dp"
+            >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="64dp"
             android:id="@+id/dojoLogoView"
-            android:src="@drawable/coderdojo_logo"
-            android:padding="5dp"/>
+            android:src="@drawable/logo_stronki"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Kino"
+                android:id="@+id/kino"
+                android:layout_gravity="center"
+                android:autoText="false"
+                android:textColor="#a70000"
+                android:focusableInTouchMode="false"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Zambrów"
+                android:id="@+id/zambrow"
+                android:layout_gravity="center"
+                android:textColor="#e93d3d"
+                android:layout_marginLeft="6dp"
+                android:focusableInTouchMode="true"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/refresh"
+                android:background="@drawable/refresh"
+                android:layout_gravity="center"
+                android:layout_marginLeft="55dp"/>
+
+        <Button
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:id="@+id/about"
+                android:background="@drawable/about"
+                android:layout_gravity="center"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:clickable="false"
+                android:background="@drawable/search"
+                android:layout_gravity="center"/>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_description"
-                android:id="@+id/dojoTextView"
-                android:gravity="center_vertical"
-                android:paddingLeft="5dp"
-                android:linksClickable="true"
-                android:autoLink="web"
-                android:textColor="@android:color/black"
-                android:paddingRight="5dp"
-                android:password="false"/>
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="http://coder-dojo.pl"
-                android:id="@+id/linkView"
-                android:paddingLeft="5dp"
-                android:linksClickable="true"
-                android:autoLink="web"/>
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="0px"
-        android:layout_height="0px"/>
+            android:orientation="vertical"
+            android:layout_width="366dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#0099cc">
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
