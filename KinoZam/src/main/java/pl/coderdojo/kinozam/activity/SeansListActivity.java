@@ -47,7 +47,7 @@ public class SeansListActivity extends Activity {
 
         inicjujObslugeBanera();
 
-        inicjujObsługeFiltrowania();
+        inicjujObslugeFiltrowania();
 
         initReadList();
     }
@@ -96,7 +96,7 @@ public class SeansListActivity extends Activity {
         });
     }
 
-    private void inicjujObsługeFiltrowania() {
+    private void inicjujObslugeFiltrowania() {
         final EditText searchText = (EditText) findViewById(R.id.searchText);
 
         searchText.addTextChangedListener(new TextWatcher() {
@@ -156,18 +156,18 @@ public class SeansListActivity extends Activity {
             }
         };
         findViewById(R.id.dojoLogoView).setOnClickListener(openDojoListener);
-        findViewById(R.id.linkView).setOnClickListener(openDojoListener);
-        findViewById(R.id.dojoTextView).setOnClickListener(openDojoListener);
+      //  findViewById(R.id.linkView).setOnClickListener(openDojoListener);
+      //  findViewById(R.id.dojoTextView).setOnClickListener(openDojoListener);
 
         //przycisk do ukrywania banera
-        ImageButton closeDescriptionButton = (ImageButton) findViewById(R.id.closeDojoDescriptionButton);
+       /* ImageButton closeDescriptionButton = (ImageButton) findViewById(R.id.closeDojoDescriptionButton);
         closeDescriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LinearLayout dojoBanner = (LinearLayout) findViewById(R.id.dojoBanner);
                 dojoBanner.setVisibility(View.GONE);
             }
-        });
+        });*/
 
     }
 
