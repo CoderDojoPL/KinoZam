@@ -156,8 +156,17 @@ public class SeansListActivity extends Activity {
             }
         };
         findViewById(R.id.dojoLogoView).setOnClickListener(openDojoListener);
-      //  findViewById(R.id.linkView).setOnClickListener(openDojoListener);
-      //  findViewById(R.id.dojoTextView).setOnClickListener(openDojoListener);
+        findViewById(R.id.buttonSzukaj).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (findViewById(R.id.pasekSzukaj).getVisibility() == View.GONE)
+                    findViewById(R.id.pasekSzukaj).setVisibility(View.VISIBLE);
+                else
+                    findViewById(R.id.pasekSzukaj).setVisibility(View.GONE);
+            }
+        });
+        //  findViewById(R.id.linkView).setOnClickListener(openDojoListener);
+        //  findViewById(R.id.dojoTextView).setOnClickListener(openDojoListener);
 
         //przycisk do ukrywania banera
        /* ImageButton closeDescriptionButton = (ImageButton) findViewById(R.id.closeDojoDescriptionButton);
@@ -197,7 +206,7 @@ public class SeansListActivity extends Activity {
         if (item.getItemId() == R.id.action_refresh) {
             initReadList();
         }
-        if (item.getItemId()==R.id.action_about){
+        if (item.getItemId() == R.id.action_about) {
             Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
             startActivity(intent);
         }

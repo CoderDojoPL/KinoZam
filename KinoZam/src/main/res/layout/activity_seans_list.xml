@@ -65,7 +65,8 @@
                     android:id="@+id/refresh"
                     android:background="@drawable/refresh"
                     android:layout_gravity="center"
-                    android:layout_margin="4dp"/>
+                    android:layout_margin="4dp"
+                    android:enabled="false"/>
 
             <Button
                     android:layout_width="32dp"
@@ -73,16 +74,18 @@
                     android:id="@+id/about"
                     android:background="@drawable/about"
                     android:layout_gravity="center"
-                    android:layout_margin="4dp"/>
+                    android:layout_margin="4dp"
+                    android:enabled="false"/>
 
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/button"
+                    android:id="@+id/buttonSzukaj"
                     android:clickable="false"
                     android:background="@drawable/search"
                     android:layout_gravity="center"
-                    android:layout_margin="4dp"/>
+                    android:layout_margin="4dp"
+                    android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -105,7 +108,10 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#77777e">
+        android:background="#77777e"
+        android:padding="4dp"
+        android:id="@+id/pasekSzukaj"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -113,7 +119,8 @@
             android:id="@+id/imageView"
             android:src="@android:drawable/ic_menu_search"
             android:layout_gravity="center"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:background="#9b9b9b"/>
 
         <EditText
             android:layout_width="fill_parent"
@@ -124,7 +131,12 @@
             android:focusable="true"
             android:nextFocusUp="@id/searchText"
             android:nextFocusLeft="@id/searchText"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:background="#9a9a9a"
+            android:gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#ffffff"
+            android:visibility="visible"/>
 
     </LinearLayout>
 
