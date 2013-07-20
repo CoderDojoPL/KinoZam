@@ -156,19 +156,6 @@ public class SeansListActivity extends Activity {
             }
         };
         findViewById(R.id.dojoLogoView).setOnClickListener(openDojoListener);
-        findViewById(R.id.linkView).setOnClickListener(openDojoListener);
-        findViewById(R.id.dojoTextView).setOnClickListener(openDojoListener);
-
-        //przycisk do ukrywania banera
-        ImageButton closeDescriptionButton = (ImageButton) findViewById(R.id.closeDojoDescriptionButton);
-        closeDescriptionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LinearLayout dojoBanner = (LinearLayout) findViewById(R.id.dojoBanner);
-                dojoBanner.setVisibility(View.GONE);
-            }
-        });
-
     }
 
     /**
