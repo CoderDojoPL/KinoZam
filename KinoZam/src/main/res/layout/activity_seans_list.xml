@@ -6,10 +6,8 @@
     tools:context=".SeansListActivity">
 
     <LinearLayout
-        android:layout_width="386dp"
+        android:layout_width="fill_parent"
         android:layout_height="83dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:background="#000000"
         android:id="@+id/dojoBanner"
         android:layout_gravity="center"
@@ -17,58 +15,75 @@
             >
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="64dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/dojoLogoView"
             android:src="@drawable/logo_stronki"
-            android:padding="5dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="4dp"/>
+            android:layout_gravity="center|bottom"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/opis_logo"/>
 
-        <TextView
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Kino"
-                android:id="@+id/kino"
-                android:layout_gravity="center"
-                android:autoText="false"
-                android:textColor="#a70000"
-                android:focusableInTouchMode="false"/>
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:layout_gravity="bottom">
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Zambrów"
-                android:id="@+id/zambrow"
-                android:layout_gravity="center"
-                android:textColor="#e93d3d"
-                android:layout_marginLeft="6dp"
-                android:focusableInTouchMode="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Kino"
+                    android:id="@+id/kino"
+                    android:layout_gravity="center|left"
+                    android:autoText="false"
+                    android:textColor="#CC0000"
+                    android:focusableInTouchMode="false"/>
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/refresh"
-                android:background="@drawable/refresh"
-                android:layout_gravity="center"
-                android:layout_marginLeft="55dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Zambrów"
+                    android:id="@+id/zambrow"
+                    android:textColor="#FF4444"
+                    android:focusableInTouchMode="true"
+                    />
+        </LinearLayout>
 
-        <Button
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:id="@+id/about"
-                android:background="@drawable/about"
-                android:layout_gravity="center"/>
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="right">
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button"
-                android:clickable="false"
-                android:background="@drawable/search"
-                android:layout_gravity="center"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/refresh"
+                    android:background="@drawable/refresh"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"/>
+
+            <Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/about"
+                    android:background="@drawable/about"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"/>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button"
+                    android:clickable="false"
+                    android:background="@drawable/search"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
