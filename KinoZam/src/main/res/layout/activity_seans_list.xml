@@ -12,8 +12,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="83dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:background="#000000"
         android:id="@+id/dojoBanner"
         android:layout_gravity="center"
@@ -25,16 +23,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/dojoLogoView"
             android:src="@drawable/logo_stronki"
-            android:layout_gravity="center"
+            android:layout_gravity="center|bottom"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:scaleType="centerInside"/>
+            android:scaleType="centerInside"
+            android:contentDescription="@string/opis_logo"/>
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_gravity="bottom">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
                     android:id="@+id/kino"
                     android:layout_gravity="center|left"
                     android:autoText="false"
-                    android:textColor="#a70000"
+                    android:textColor="#CC0000"
                     android:focusableInTouchMode="false"/>
 
             <TextView
@@ -53,7 +53,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Zambrów"
                     android:id="@+id/zambrow"
-                    android:textColor="#e93d3d"
+                    android:textColor="#FF4444"
                     android:focusableInTouchMode="true"
                     />
         </LinearLayout>
