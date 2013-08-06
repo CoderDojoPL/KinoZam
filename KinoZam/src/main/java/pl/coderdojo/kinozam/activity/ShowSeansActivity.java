@@ -153,7 +153,7 @@ public class ShowSeansActivity extends Activity {
             @Override
             public void onClick(View view) {
                 String number = "tel:864754488";
-                Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(number));
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(number));
                 startActivity(callIntent);
 
 
