@@ -9,6 +9,8 @@
         android:targetSdkVersion="10" />
     <!--Uprawnienia jakich potrzebuje aplikacja do działania -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--Zeby dzwonic do kina-->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <!-- Podstawowe ustawienia aplikacji:
      - android:icon - Ikonka programu

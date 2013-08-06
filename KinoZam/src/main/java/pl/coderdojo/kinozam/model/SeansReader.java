@@ -52,7 +52,7 @@ public class SeansReader {
             String filename = imgUrl.substring(offset);
             String encoded = URLEncoder.encode(filename);
             imgUrl = imgUrl.substring(0, offset) + encoded;
-            imgUrl = imgUrl.replaceFirst("\\.jpg", "-150x150.jpg");
+            imgUrl = imgUrl.replaceFirst("\\.jpg", "-291x251.jpg");
             seans.setImageUri(new URI(imgUrl));
             seans.setImage(loadImage(seans.getImageUri()));
             imagecache.put(title, seans.getImage());

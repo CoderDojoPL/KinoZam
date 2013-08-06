@@ -76,7 +76,6 @@ public class ReadSeanseTask extends AsyncTask<SeansListActivity, Void, List<Sean
                         R.id.timeTextView});
         listView.setAdapter(adapter);
         activity.findViewById(R.id.buttonSzukaj).setEnabled(true);
-        activity.findViewById(R.id.refresh).setEnabled(true);
         activity.findViewById(R.id.about).setEnabled(true);
         Context context = activity.getApplicationContext();
         CharSequence text = "Pobrano " + seanse.size() + " seansów";

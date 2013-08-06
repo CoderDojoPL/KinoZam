@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.*;
 import pl.coderdojo.kinozam.R;
 import pl.coderdojo.kinozam.activity.task.ReadExtraDataSeansTask;
@@ -40,6 +41,7 @@ public class SeansListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         //wywołujemy bazową implementację tej metody na wszelki wypadek
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         //ustawiamy layout widoku na zdefiniowany w pliku res/layout/activity_seans_list.xml
         setContentView(R.layout.activity_seans_list);
 
@@ -163,6 +165,22 @@ public class SeansListActivity extends Activity {
                     findViewById(R.id.pasekSzukaj).setVisibility(View.VISIBLE);
                 else
                     findViewById(R.id.pasekSzukaj).setVisibility(View.GONE);
+            }
+        });
+        findViewById(R.id.refresh).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initReadList();
+
+
+            }
+
+        });
+        findViewById(R.id.about).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+                startActivity(intent);
             }
         });
         //  findViewById(R.id.linkView).setOnClickListener(openDojoListener);
