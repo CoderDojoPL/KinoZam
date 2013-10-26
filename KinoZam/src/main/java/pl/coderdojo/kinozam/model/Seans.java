@@ -11,17 +11,20 @@ import java.util.GregorianCalendar;
  * Created by luk on 19.05.13.
  */
 public class Seans implements Serializable {
+    private final URI miniImgUri;
     private String title;
     private Date date;
     private URI uri;
-    private String description="";
+    private String description = "";
     private URI imageUri;
     private transient Bitmap image;
+    private transient Bitmap miniImage;
 
-    public Seans(String title, Date date, URI uri) {
+    public Seans(String title, Date date, URI uri, URI miniImgUri) {
         this.title = title;
         this.date = date;
         this.uri = uri;
+        this.miniImgUri = miniImgUri;
     }
 
     public Bitmap getImage() {
@@ -34,6 +37,14 @@ public class Seans implements Serializable {
 
     public String getTitle() {
         return title;
+    }
+
+    public Bitmap getMiniImage() {
+        return miniImage;
+    }
+
+    public void setMiniImage(Bitmap miniImage) {
+        this.miniImage = miniImage;
     }
 
     public Date getDate() {
@@ -58,6 +69,10 @@ public class Seans implements Serializable {
 
     public void setImageUri(URI imageUri) {
         this.imageUri = imageUri;
+    }
+
+    public URI getMiniImgUri() {
+        return miniImgUri;
     }
 
     /**
@@ -96,7 +111,7 @@ public class Seans implements Serializable {
         return getDate().compareTo(new Date()) > 0;
     }
 
-    public String zaIleCzasu() {
+    public String zaIleCzasuDzisiaj() {
         Date d1 = getDate();
         Date d2 = new Date();
         Long czas = (d1.getTime() - d2.getTime()) / 1000;//8000
@@ -104,4 +119,13 @@ public class Seans implements Serializable {
         Long minuty = (czas - godziny * 3600) / 60;//8000-2*3600 = 800/60godziny
         return "Dzisiaj za " + godziny + " h " + minuty + " min";
     }
+   /* public String zaIleCzasuJutro() {
+        Date d1 = getDate();
+        Date d2 = new Date();
+        Long czas = (d1.getTime() - d2.getTime()) / 1000;//8000
+        Long godziny = czas / 3600;// 8000/3600 = 2
+        Long minuty = (czas - godziny * 3600) / 60;//8000-2*3600 = 800/60godziny
+        return "Dzisiaj za " + godziny + " h " + minuty + " min";
+        */
 }
+

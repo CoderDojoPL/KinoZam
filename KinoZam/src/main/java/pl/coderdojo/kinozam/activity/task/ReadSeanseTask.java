@@ -8,6 +8,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import pl.coderdojo.kinozam.R;
 import pl.coderdojo.kinozam.activity.SeansListActivity;
+import pl.coderdojo.kinozam.activity.adapter.ExtendedSimpleAdapter;
 import pl.coderdojo.kinozam.model.Seans;
 import pl.coderdojo.kinozam.model.SeansReader;
 
@@ -51,29 +52,32 @@ public class ReadSeanseTask extends AsyncTask<SeansListActivity, Void, List<Sean
         activity.seanse = seanse;
         DateFormat dt = SimpleDateFormat.getTimeInstance(DateFormat.SHORT);
         DateFormat dd = SimpleDateFormat.getDateInstance(DateFormat.LONG);
-        List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
+        List<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
         EditText searchText = (EditText) activity.findViewById(R.id.searchText);
         for (Seans seans : seanse) {
             if (seans.getTitle().toLowerCase().contains(searchText.getText().toString().toLowerCase())) {
-                Map<String, Object> datum = new HashMap<String, Object>(3);
+                HashMap<String, Object> datum = new HashMap<String, Object>(3);
                 datum.put("title", seans.getTitle());
                 if (seans.isToday()) {
-                    datum.put("date", seans.zaIleCzasu());
+                    datum.put("date", seans.zaIleCzasuDzisiaj());
                 } else {
                     datum.put("date", dd.format(seans.getDate()));
                 }
                 datum.put("time", dt.format(seans.getDate()));
                 datum.put("seans", seans);
 
+                datum.put("miniImage", seans.getMiniImage());
+
                 data.add(datum);
             }
         }
-        SimpleAdapter adapter = new SimpleAdapter(activity, data,
+        ExtendedSimpleAdapter adapter = new ExtendedSimpleAdapter(activity, data,
                 R.layout.seans_item,
-                new String[]{"title", "date", "time"},
+                new String[]{"title", "date", "time", "miniImage"},
                 new int[]{R.id.titleTextView,
                         R.id.dateTextView,
-                        R.id.timeTextView});
+                        R.id.timeTextView,
+                        R.id.imageView});
         listView.setAdapter(adapter);
         activity.findViewById(R.id.buttonSzukaj).setEnabled(true);
         activity.findViewById(R.id.about).setEnabled(true);

@@ -87,7 +87,7 @@ public class ShowSeansActivity extends Activity {
 
         //esli seans jest dzisiaj, to zamiast daty wyświetlamy po prostu "Dzisiaj"
         if (seans.isToday()) {
-            dateTextView.setText(seans.zaIleCzasu());
+            dateTextView.setText(seans.zaIleCzasuDzisiaj());
         } else {//w przeciwnym wypadku formatujemy date formaterem dd i wyswietlamy w pobranej kontrolce
             dateTextView.setText(dd.format(seans.getDate()));
         }

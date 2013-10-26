@@ -26,13 +26,31 @@ public class SeansReader {
 
     private final static Map<String, String> descriptionCache = new HashMap<String, String>();
     private final static Map<String, Bitmap> imagecache = new HashMap<String, Bitmap>();
+    private final static Map<URI, Bitmap> miniImagecache = new HashMap<URI, Bitmap>();
 
     private Seans createSeans(VEvent event) throws IOException, URISyntaxException {
         final String title = event.getSummary().getValue();
         final Date date = event.getStartDate().getDate();
         final URI uri = event.getUrl().getUri();
-        Seans seans = new Seans(title, date, uri);
+        String url = event.getDescription().getValue();
+
+        int offset = url.lastIndexOf('/') + 1;
+        String filename = url.substring(offset);
+        String encoded = URLEncoder.encode(filename);
+        url = url.substring(0, offset) + encoded;
+
+        final URI miniImgUri = new URI(url);
+        Seans seans = new Seans(title, date, uri, miniImgUri);
+        if (miniImagecache.containsKey(miniImgUri)) {
+            seans.setMiniImage(miniImagecache.get(miniImgUri));
+        } else {
+            Bitmap miniImage = loadImage(miniImgUri);
+            seans.setMiniImage(miniImage);
+            miniImagecache.put(miniImgUri, miniImage);
+        }
+
         return seans;
+
     }
 
     public void readExtraData(Seans seans) throws IOException, URISyntaxException {
