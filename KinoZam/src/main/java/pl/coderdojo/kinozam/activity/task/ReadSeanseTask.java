@@ -56,7 +56,7 @@ public class ReadSeanseTask extends AsyncTask<SeansListActivity, Void, List<Sean
         EditText searchText = (EditText) activity.findViewById(R.id.searchText);
         for (Seans seans : seanse) {
             if (seans.getTitle().toLowerCase().contains(searchText.getText().toString().toLowerCase())) {
-                HashMap<String, Object> datum = new HashMap<String, Object>(3);
+                HashMap<String, Object> datum = new HashMap<String, Object>(5);
                 datum.put("title", seans.getTitle());
                 if (seans.isToday()) {
                     datum.put("date", seans.zaIleCzasuDzisiaj());

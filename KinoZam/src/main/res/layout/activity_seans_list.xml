@@ -100,7 +100,7 @@
 
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="366dp"
+            android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_gravity="center_horizontal"
             android:background="#0099cc">

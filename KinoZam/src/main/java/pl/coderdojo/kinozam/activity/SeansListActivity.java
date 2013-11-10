@@ -7,12 +7,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 import pl.coderdojo.kinozam.R;
+import pl.coderdojo.kinozam.activity.adapter.ExtendedSimpleAdapter;
 import pl.coderdojo.kinozam.activity.task.ReadExtraDataSeansTask;
 import pl.coderdojo.kinozam.activity.task.ReadSeanseTask;
 import pl.coderdojo.kinozam.model.Seans;
@@ -22,7 +27,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Aktywność wyświetlająca listę seansów, czyli nasz główny ekran
@@ -114,29 +118,36 @@ public class SeansListActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (seanse == null) return;
 
                 ListView listView = (ListView) findViewById(R.id.listView);
 
                 DateFormat dt = SimpleDateFormat.getTimeInstance(DateFormat.SHORT);
                 DateFormat dd = SimpleDateFormat.getDateInstance(DateFormat.LONG);
-                List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
+                List<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
+                String filterString = searchText.getText().toString().toLowerCase();
                 for (Seans item : seanse) {
-                    if (item.getTitle().toLowerCase().contains(searchText.getText().toString().toLowerCase())) {
-                        Map<String, Object> datum = new HashMap<String, Object>(3);
+                    if (item.getTitle().toLowerCase().contains(filterString)) {
+                        HashMap<String, Object> datum = new HashMap<String, Object>(5);
                         datum.put("title", item.getTitle());
-                        datum.put("date", dd.format(item.getDate()));
+                        if (item.isToday()) {
+                            datum.put("date", item.zaIleCzasuDzisiaj());
+                        } else {
+                            datum.put("date", dd.format(item.getDate()));
+                        }
                         datum.put("time", dt.format(item.getDate()));
                         datum.put("seans", item);
-
+                        datum.put("miniImage", item.getMiniImage());
                         data.add(datum);
                     }
                 }
-                SimpleAdapter adapter = new SimpleAdapter(SeansListActivity.this, data,
+                ExtendedSimpleAdapter adapter = new ExtendedSimpleAdapter(SeansListActivity.this, data,
                         R.layout.seans_item,
-                        new String[]{"title", "date", "time"},
+                        new String[]{"title", "date", "time", "miniImage"},
                         new int[]{R.id.titleTextView,
                                 R.id.dateTextView,
-                                R.id.timeTextView});
+                                R.id.timeTextView,
+                                R.id.imageView});
                 listView.setAdapter(adapter);
 
             }
@@ -153,7 +164,7 @@ public class SeansListActivity extends Activity {
         View.OnClickListener openDojoListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://coder-dojo.pl"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://coderdojo.org.pl"));
                 startActivity(browserIntent);
             }
         };
