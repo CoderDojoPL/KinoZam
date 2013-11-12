@@ -46,8 +46,18 @@
         >
 
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:background="@drawable/logo_stronki"
+            android:scaleType="fitXY"
+            android:maxHeight="75dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="75dp"/>
+
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/titleTextView" android:layout_gravity="center_horizontal|left"
@@ -56,19 +66,6 @@
                 android:text="Medium Text"
                 android:phoneNumber="false"
                 android:layout_marginLeft="16dp"/>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="right">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageView"
-                android:background="@drawable/logo_stronki"
-                />
-        </LinearLayout>
 
     </LinearLayout>
 

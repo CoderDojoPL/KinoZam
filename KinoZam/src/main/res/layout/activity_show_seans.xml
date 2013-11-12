@@ -5,75 +5,6 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:id="@+id/scrollView2">
-
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:id="@+id/imageView"
-            android:padding="10dp"
-            android:scaleType="centerCrop"/>
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:background="#323232">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/titleTextView"
-            android:layout_gravity="center|left"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            >
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
-                    android:id="@+id/dateTextView"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:gravity="center_vertical|left"
-                    android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
-                    android:id="@+id/timeTextView"
-                    android:paddingBottom="10dp"
-                    android:gravity="center_vertical|right"
-                    android:layout_marginRight="@dimen/activity_vertical_margin"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -87,6 +18,75 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:id="@+id/scrollView2">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/imageView"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop"/>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:background="#323232">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/titleTextView"
+                    android:layout_gravity="center|left"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/dateTextView"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:gravity="center_vertical|left"
+                            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/timeTextView"
+                            android:paddingBottom="10dp"
+                            android:gravity="center_vertical|right"
+                            android:layout_marginRight="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <WebView
                 android:layout_width="fill_parent"
