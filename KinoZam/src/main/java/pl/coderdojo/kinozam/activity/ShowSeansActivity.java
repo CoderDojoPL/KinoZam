@@ -2,11 +2,12 @@ package pl.coderdojo.kinozam.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -27,6 +28,7 @@ public class ShowSeansActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //ustawiamy layout okna
         setContentView(R.layout.activity_show_seans);
@@ -47,7 +49,7 @@ public class ShowSeansActivity extends Activity {
         //mozliwosci. Justowanie jest zrobione przy pomocy html-a (<p align="justify">)
         WebView descriptionTextView = (WebView) findViewById(R.id.descriptionTextView);
         String html = "<html><head><meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/></head><body>"
-                + "<p align=\"justify\" style=\"color:white;\">"
+                + "<p align=\"\" style=\"color:white;line-height:1.5em\">"
                 + StringEscapeUtils.escapeHtml(seans.getDescription())
                 + "</p> "
                 + "</body></html>";
@@ -83,9 +85,9 @@ public class ShowSeansActivity extends Activity {
         //pobieramy kontrolke do wyswietlania daty seansu
         TextView dateTextView = (TextView) findViewById(R.id.dateTextView);
 
-        //jesli seans jest dzisiaj, to zamiast daty wyświetlamy po prostu "Dzisiaj"
+        //esli seans jest dzisiaj, to zamiast daty wyświetlamy po prostu "Dzisiaj"
         if (seans.isToday()) {
-            dateTextView.setText(seans.zaIleCzasu());
+            dateTextView.setText(seans.zaIleCzasuDzisiaj());
         } else {//w przeciwnym wypadku formatujemy date formaterem dd i wyswietlamy w pobranej kontrolce
             dateTextView.setText(dd.format(seans.getDate()));
         }
@@ -112,10 +114,20 @@ public class ShowSeansActivity extends Activity {
         trailerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //korzystamy z metody URLEncoder.encode(String s), aby zakodować poprawnie polskie znaki w adresie url
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.youtube.com/#/results?search_query=" + URLEncoder.encode(seans.getTitle()) + "+trailer+zapowied%C5%BA+zwiastun"));
-                //odpalamy intencje
-                startActivity(browserIntent);
+                Intent intent;
+                //sprawdzenie czy aplikacja youtube jest zainstalowana, jeśli nie, to odpalać stronkę youtube.
+                boolean czyJestApkaYouTube = isAppInstalled("com.google.android.youtube");
+
+                if (czyJestApkaYouTube) {
+                    intent = new Intent(Intent.ACTION_SEARCH);
+                    intent.setPackage("com.google.android.youtube");
+                    intent.putExtra("query", seans.getTitle() + " trailer zapowiedź zwiastun");
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                } else {
+                    //korzystamy z metody URLEncoder.encode(String s), aby zakodować poprawnie polskie znaki w adresie url
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.youtube.com/#/results?search_query=" + URLEncoder.encode(seans.getTitle()) + "+trailer+zapowied%C5%BA+zwiastun"));
+                }
+                startActivity(intent);
             }
         });
 
@@ -131,7 +143,33 @@ public class ShowSeansActivity extends Activity {
                 intent.putExtra(Intent.ACTION_VIEW, seans);
                 startActivity(intent);
 
+
             }
         });
+        //pobieramy przycisk do wybieranie numeru telelefonu do kina
+        ImageButton telButton = (ImageButton) findViewById(R.id.telButton);
+
+        telButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String number = "tel:864754488";
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(number));
+                startActivity(callIntent);
+
+
+            }
+        });
+    }
+
+    private boolean isAppInstalled(String uri) {
+        PackageManager pm = getPackageManager();
+        boolean installed = false;
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            installed = false;
+        }
+        return installed;
     }
 }

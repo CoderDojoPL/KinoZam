@@ -10,10 +10,11 @@
     <string name="open_url">Zobacz na stronie</string>
     <string name="app_description">Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i polub nas
     </string>
-    <string name="app_description_with_url">Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i polub nas http://coder-dojo.pl
+    <string name="app_description_with_url">Aplikacja została stworzona na spotkaniach CoderDojo Zambrów. Odwiedź naszą stronę i polub nas http://coderdojo.org.pl
     </string>
-    <string name="authors">Mateusz Dmochowski\nKarol Komorowski\nKamil Orłowski\nMichał Sianko
+    <string name="authors">Mateusz Dmochowski\nMichał Gosk\nKarol Komorowski\nKamil Orłowski\nMichał Sianko\nMaciej Świerżewski
     </string>
     <string name="senseis">Łukasz Dziedziul\nKamil Sijko</string>
+    <string name="opis_logo">Logo kina</string>
 
 </resources>

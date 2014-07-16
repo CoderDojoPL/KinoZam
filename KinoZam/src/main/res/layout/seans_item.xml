@@ -2,39 +2,70 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/titleTextView" android:layout_gravity="center"/>
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="#76767a"
+              android:paddingBottom="2dp"
+              android:baselineAligned="false"
+    >
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="35dp"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#353535">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Small Text"
             android:id="@+id/dateTextView"
-            android:gravity="left"
-            android:paddingBottom="10dp"/>
+            android:gravity="center_vertical|left"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"/>
 
         <TextView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Small Text"
             android:id="@+id/timeTextView"
-            android:paddingBottom="10dp"
-            android:gravity="right"
-            />
+            android:gravity="center_vertical|right"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#565656"
+        android:id="@+id/backgroundblue"
+        >
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:background="@drawable/logo_stronki"
+            android:scaleType="fitXY"
+            android:maxHeight="75dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="75dp"/>
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/titleTextView" android:layout_gravity="center_horizontal|left"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="Medium Text"
+                android:phoneNumber="false"
+                android:layout_marginLeft="16dp"/>
 
     </LinearLayout>
 

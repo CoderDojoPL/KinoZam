@@ -2,68 +2,91 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-        <ImageView
-            android:layout_width="150px"
-            android:layout_height="150px"
-            android:id="@+id/imageView"
-            android:padding="10dp"
-            />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/titleTextView"
-                android:layout_gravity="center|left"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
-                android:id="@+id/dateTextView"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
-                android:id="@+id/timeTextView"
-                android:paddingBottom="10dp"/>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
 
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="#555555">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView2">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/imageView"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop"/>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:background="#323232">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/titleTextView"
+                    android:layout_gravity="center|left"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/dateTextView"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:gravity="center_vertical|left"
+                            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Small Text"
+                            android:id="@+id/timeTextView"
+                            android:paddingBottom="10dp"
+                            android:gravity="center_vertical|right"
+                            android:layout_marginRight="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <WebView
                 android:layout_width="fill_parent"
@@ -72,89 +95,9 @@
                 android:layout_gravity="center"
                 android:text="Seans Description"
                 android:clickable="false"
-                android:background="@android:color/background_dark"
-                style="color:white;"/>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <TextView
-                    android:layout_width="140dp"
-                    android:layout_height="fill_parent"
-                    android:text="Naciśnij, aby wykonać rezerwację! "
-                    android:id="@+id/textView4"
-                    android:paddingRight="10dp"
-                    android:gravity="center_vertical"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="864754488"
-                    android:id="@+id/textView3"
-                    android:autoLink="phone"
-                    android:phoneNumber="true"
-                    android:padding="20dp"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:textSize="25dp"
-                    android:textColor="#ff002f"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:paddingBottom="20dp">
-
-                <TextView
-                    android:layout_width="140dp"
-                    android:layout_height="fill_parent"
-                    android:text="Szukaj trailera"
-                    android:id="@+id/textView"
-                    android:gravity="center_vertical"
-                    android:paddingRight="10dp"/>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/trailerButton"
-                    android:src="@drawable/szukaj"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
-                    android:padding="20dp"
-                    android:background="#010101"
-                    android:layout_gravity="center"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:paddingBottom="20dp">
-
-                <TextView
-                    android:layout_width="140dp"
-                    android:layout_height="fill_parent"
-                    android:text="Otwórz stronę kina"
-                    android:id="@+id/textView2"
-                    android:gravity="center_vertical"
-                    android:paddingRight="10dp"
-                    />
-
-                <ImageButton
-                    android:layout_width="91dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/linkButton"
-                    android:src="@drawable/logo_stronki"
-                    android:background="#010101"
-                    android:layout_gravity="center_horizontal|top"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"/>
-
-            </LinearLayout>
+                android:background="#555555"
+                style="color:white;"
+                />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -184,6 +127,47 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="#ff0004"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/telButton"
+            android:src="@drawable/call"
+            android:background="#ff0509"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/trailerButton"
+            android:background="#ff0509"
+            android:src="@drawable/play"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/linkButton"
+            android:src="@drawable/kino_link"
+            android:background="#ff0509"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>
